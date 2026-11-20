@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Design | Venturo Design</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .digital-page {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 70px 6%;
+        }
+
+        .digital-header {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .digital-header h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            letter-spacing: 5px;
+            margin-bottom: 12px;
+        }
+
+        .digital-header p {
+            color: #999;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .collection {
+            margin-bottom: 75px;
+        }
+
+        .collection h2 {
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .digital-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .digital-card {
+            position: relative;
+            background: #171717;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            color: white;
+            text-align: left;
+        }
+
+        .digital-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .digital-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .digital-card span {
+            display: block;
+            padding: 15px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* Fullscreen gallery */
+
+        .gallery-viewer {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.97);
+            align-items: center;
+            justify-content: center;
+            padding: 60px 70px;
+        }
+
+        .gallery-viewer.active {
+            display: flex;
+        }
+
+        .gallery-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+        }
+
+        .gallery-close,
+        .gallery-prev,
+        .gallery-next {
+            position: absolute;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 34px;
+            padding: 10px;
+        }
+
+        .gallery-close {
+            top: 15px;
+            right: 25px;
+            font-size: 38px;
+        }
+
+        .gallery-prev {
+            left: 15px;
+        }
+
+        .gallery-next {
+            right: 15px;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 20px;
+            color: #aaa;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .digital-page {
+                padding: 45px 5%;
+            }
+
+            .gallery-viewer {
+                padding: 50px 45px;
+            }
+
+            .gallery-prev {
+                left: 0;
+            }
+
+            .gallery-next {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="digital-page">
+
+        <header class="digital-header">
+            <h1>DIGITAL DESIGN</h1>
+            <p>Digital Artwork & Creative Exploration</p>
+        </header>
+
+        <!-- ALFA ROMEO RUBINO -->
+
+        <section class="collection">
+            <h2>Alfa Romeo Rubino</h2>
+
+            <div class="digital-grid">
+                <button class="digital-card" onclick="openGallery('rubino', 0)">
+                    <img src="assets/digital/alfa romeo rubino/rubino-01.png" alt="Alfa Romeo Rubino">
+                    <span>Alfa Romeo Rubino — Digital Artwork</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- CARTOLINE -->
+
+        <section class="collection">
+            <h2>Art Postcards</h2>
+
+            <div class="digital-grid">
+                <button class="digital-card" onclick="openGallery('cartoline', 0)">
+                    <img src="assets/digital/cartoline/cartolina-01.jpg" alt="Art postcard 01">
+                    <span>Art Postcard 01</span>
+                </button>
+
+                <button class="digital-card" onclick="openGallery('cartoline', 1)">
+                    <img src="assets/digital/cartoline/cartolina-02.jpg" alt="Art postcard 02">
+                    <span>Art Postcard 02</span>
+                </button>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-link">← BACK TO HOME</a>
+
+    </main>
+
+    <!-- GALLERY VIEWER -->
+
+    <div class="gallery-viewer" id="galleryViewer">
+
+        <button class="gallery-close" onclick="closeGallery()">×</button>
+
+        <button class="gallery-prev" onclick="changeImage(-1)">&#10094;</button>
+
+        <img class="gallery-image" id="galleryImage" src="" alt="Artwork">
+
+        <button class="gallery-next" onclick="changeImage(1)">&#10095;</button>
+
+        <div class="gallery-counter" id="galleryCounter"></div>
+
+    </div>
+
+    <script>
+        const galleries = {
+            rubino: [
+                "assets/digital/alfa romeo rubino/rubino-01.png",
+                "assets/digital/alfa romeo rubino/rubino-02.png",
+                "assets/digital/alfa romeo rubino/rubino-03.png",
+                "assets/digital/alfa romeo rubino/rubino-04.png"
+            ],
+
+            cartoline: [
+                "assets/digital/cartoline/cartolina-01.jpg",
+                "assets/digital/cartoline/cartolina-02.jpg"
+            ]
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openGallery(name, index) {
+            currentGallery = galleries[name];
+            currentIndex = index;
+
+            document.getElementById("galleryViewer").classList.add("active");
+            showImage();
+        }
+
+        function showImage() {
+            document.getElementById("galleryImage").src = currentGallery[currentIndex];
+
+            document.getElementById("galleryCounter").textContent =
+                (currentIndex + 1) + " / " + currentGallery.length;
+        }
+
+        function changeImage(direction) {
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = currentGallery.length - 1;
+            }
+
+            if (currentIndex >= currentGallery.length) {
+                currentIndex = 0;
+            }
+
+            showImage();
+        }
+
+        function closeGallery() {
+            document.getElementById("galleryViewer").classList.remove("active");
+        }
+
+        document.addEventListener("keydown", function(event) {
+            const viewer = document.getElementById("galleryViewer");
+
+            if (!viewer.classList.contains("active")) return;
+
+            if (event.key === "Escape") closeGallery();
+            if (event.key === "ArrowRight") changeImage(1);
+            if (event.key === "ArrowLeft") changeImage(-1);
+        });
+
+        document.getElementById("galleryViewer").addEventListener("click", function(event) {
+            if (event.target === this) closeGallery();
+        });
+    </script>
+
+</body>
+</html>

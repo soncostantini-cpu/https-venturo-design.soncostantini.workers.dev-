@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Design | Venturo Design</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .industrial-page {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 70px 6%;
+        }
+
+        .industrial-header {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .industrial-header h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            letter-spacing: 5px;
+            margin-bottom: 12px;
+        }
+
+        .industrial-header p {
+            color: #999;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .collection {
+            margin-bottom: 75px;
+        }
+
+        .collection h2 {
+            font-size: 23px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .industrial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .industrial-card {
+            position: relative;
+            background: #171717;
+            overflow: hidden;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+            color: white;
+            text-align: left;
+        }
+
+        .industrial-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .industrial-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .industrial-card span {
+            display: block;
+            padding: 15px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        /* Fullscreen image viewer */
+
+        .gallery-viewer {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.97);
+            align-items: center;
+            justify-content: center;
+            padding: 60px 70px;
+        }
+
+        .gallery-viewer.active {
+            display: flex;
+        }
+
+        .gallery-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 38px;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .industrial-page {
+                padding: 45px 5%;
+            }
+
+            .gallery-viewer {
+                padding: 50px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="industrial-page">
+
+        <header class="industrial-header">
+            <h1>INDUSTRIAL DESIGN</h1>
+            <p>Industrial Concepts & Creative Projects</p>
+        </header>
+
+        <!-- COMMISSION -->
+
+        <section class="collection">
+            <h2>Commission</h2>
+
+            <div class="industrial-grid">
+
+                <button class="industrial-card" onclick="openImage('rapaccioli')">
+                    <img
+                        src="assets/industrial/commission/rapaccioli-truck.jpg"
+                        alt="Rapaccioli Truck"
+                    >
+                    <span>Rapaccioli Truck</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- PERSONAL PROJECTS -->
+
+        <section class="collection">
+            <h2>Personal Projects</h2>
+
+            <div class="industrial-grid">
+
+                <button class="industrial-card" onclick="openImage('cube')">
+                    <img
+                        src="assets/industrial/personal/cube-concept-2028.jpg"
+                        alt="Cube Concept 2028"
+                    >
+                    <span>Cube Concept 2028</span>
+                </button>
+
+            </div>
+        </section>
+
+        <a href="index.html" class="back-link">← BACK TO HOME</a>
+
+    </main>
+
+    <!-- IMAGE VIEWER -->
+
+    <div class="gallery-viewer" id="galleryViewer">
+
+        <button class="gallery-close" onclick="closeImage()">×</button>
+
+        <img class="gallery-image" id="galleryImage" src="" alt="Industrial design artwork">
+
+    </div>
+
+    <script>
+        const industrialImages = {
+            rapaccioli:
+                "assets/industrial/commission/rapaccioli-truck.jpg",
+
+            cube:
+                "assets/industrial/personal/cube-concept.jpg"
+        };
+
+        function openImage(name) {
+            document.getElementById("galleryImage").src =
+                industrialImages[name];
+
+            document.getElementById("galleryViewer").classList.add("active");
+        }
+
+        function closeImage() {
+            document.getElementById("galleryViewer").classList.remove("active");
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeImage();
+            }
+        });
+
+        document.getElementById("galleryViewer").addEventListener("click", function(event) {
+            if (event.target === this) {
+                closeImage();
+            }
+        });
+    </script>
+
+</body>
+</html>

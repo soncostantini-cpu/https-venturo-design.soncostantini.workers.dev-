@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive Projects | Venturo Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            padding: 28px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .back-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .hero {
+            padding: 100px 7% 75px;
+            background: linear-gradient(110deg, #222, #111 75%);
+        }
+
+        .eyebrow {
+            color: #999;
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 82px);
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .hero-description {
+            color: #aaa;
+            max-width: 600px;
+            line-height: 1.8;
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+        main {
+            padding: 65px 7% 100px;
+        }
+
+        .section-heading {
+            margin-bottom: 35px;
+        }
+
+        .section-heading h2 {
+            font-size: 27px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-heading p {
+            color: #888;
+            font-size: 13px;
+            margin-top: 12px;
+            line-height: 1.7;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            display: block;
+            color: white;
+            text-decoration: none;
+            background: #1b1b1b;
+            overflow: hidden;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            background: #242424;
+        }
+
+        .project-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.85);
+            transition: filter 0.3s;
+        }
+
+        .project-card:hover img {
+            filter: brightness(1);
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-category {
+            color: #999;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-top: 12px;
+        }
+
+        .project-info p {
+            color: #999;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .view-project {
+            display: inline-block;
+            margin-top: 22px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .personal-section {
+            margin-top: 100px;
+            padding-top: 55px;
+            border-top: 1px solid #333;
+        }
+
+        .coming-soon {
+            margin-top: 25px;
+            padding: 35px;
+            background: #1b1b1b;
+            color: #888;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 30px 7%;
+            border-top: 1px solid #333;
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 22px 6%;
+            }
+
+            .hero {
+                padding: 75px 6% 55px;
+            }
+
+            main {
+                padding: 50px 6% 75px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">VENTURO DESIGN</a>
+        <a href="index.html" class="back-link">← BACK TO HOME</a>
+    </header>
+
+    <section class="hero">
+        <p class="eyebrow">Venturo Design / Portfolio</p>
+        <h1>Automotive</h1>
+        <p class="hero-description">
+            Exploring new forms, proportions and design languages.
+            A collection of academic and personal automotive projects,
+            developed through sketches, concepts and visual research.
+        </p>
+    </section>
+
+    <main>
+
+        <section>
+            <div class="section-heading">
+                <h2>IED Projects</h2>
+                <p>Academic projects and design explorations.</p>
+            </div>
+
+            <div class="project-grid">
+
+                <a href="projects/ied-project-01.html" class="project-card">
+                    <img
+                        src="assets/projects/ied/alpine-a365-kei-car-2040/cover.jpg"
+                        alt="Alpine A365 Kei Car 2040"
+                    >
+
+                    <div class="project-info">
+                        <span class="project-category">IED / Automotive Design</span>
+                        <h3>Alpine A365 Kei Car 2040</h3>
+                        <p>
+                            An exploration of compact urban mobility,
+                            combining sportiness, versatility and
+                            off-road inspiration.
+                        </p>
+                        <span class="view-project">Explore project →</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+
+<div class="project-grid">
+
+    <a href="projects/lamborghini-arpis-2030.html" class="project-card">
+
+        <img
+            src="assets/projects/personal/lamborghini-arpis-2030/cover.jpg"
+            alt="Lamborghini Arpis 2030"
+        >
+
+        <div class="project-info">
+
+            <span class="project-category">
+                Personal Project / Automotive Design
+            </span>
+
+            <h3>Lamborghini Arpis 2030</h3>
+
+            <p>
+                An independent automotive design exploration,
+                developed through sketches and Blender 5.2.
+            </p>
+
+            <span class="view-project">
+                Explore project →
+            </span>
+
+        </div>
+
+    </a>
+
+<a href="projects/maserati-mcpura-gt2-stradale-2028.html" class="project-card">
+
+    <img
+        src="assets/projects/personal/maserati-mcpura-gt2-stradale-2028/cover.jpg"
+        alt="Maserati MCPura GT2 Stradale 2028"
+    >
+
+    <div class="project-info">
+
+        <span class="project-category">
+            Personal Project / Automotive Design
+        </span>
+
+        <h3>Maserati MCPura GT2 Stradale 2028</h3>
+
+        <p>
+            An independent automotive design exploration,
+            developed through sketches and digital modelling.
+        </p>
+
+        <span class="view-project">
+            Explore project →
+        </span>
+
+    </div>
+
+</a>
+
+<a href="projects/tesla-granturismo-2026.html" class="project-card">
+    <img
+        src="assets/projects/personal/tesla-granturismo-2026/cover.jpg"
+        alt="Tesla Granturismo 2026"
+    >
+
+    <div class="project-info">
+        <h3>Tesla Granturismo 2026</h3>
+        <p>Personal Project</p>
+    </div>
+</a>
+
+
+<div class="project-card">
+    <img src="projects/maserati-mc20-gt2-stradale.jpg"
+         alt="Maserati MC20 GT2 Stradale">
+    <div class="project-info">
+        <span class="project-category">Personal Project / Automotive Design</span>
+        <h3>Maserati MC20 GT2 Stradale</h3>
+        <p>Automotive design illustration.</p>
+        <span class="view-project">Artwork</span>
+    </div>
+</div>
+
+<div class="project-card">
+    <img src="projects/bugatti-eb110.jpg"
+         alt="Bugatti EB110">
+    <div class="project-info">
+        <span class="project-category">Personal Project / Automotive Design</span>
+        <h3>Bugatti EB110</h3>
+        <p>Automotive design illustration.</p>
+        <span class="view-project">Artwork</span>
+    </div>
+</div>
+
+<div class="project-card">
+    <img src="projects/ferrari-499p.jpg"
+         alt="Ferrari 499P">
+    <div class="project-info">
+        <span class="project-category">Personal Project / Automotive Design</span>
+        <h3>Ferrari 499P</h3>
+        <p>Automotive design illustration.</p>
+        <span class="view-project">Artwork</span>
+    </div>
+</div>
+
+<div class="project-card">
+    <img src="projects/maserati-granturismo-2023.jpg"
+         alt="Maserati GranTurismo 2023">
+    <div class="project-info">
+        <span class="project-category">Personal Project / Automotive Design</span>
+        <h3>Maserati GranTurismo 2023</h3>
+        <p>Automotive design illustration.</p>
+        <span class="view-project">Artwork</span>
+    </div>
+</div>
+
+<div class="project-card">
+    <img src="projects/bmw-m4-pink-wrap.jpg"
+         alt="BMW M4 Pink Wrap">
+    <div class="project-info">
+        <span class="project-category">Personal Project / Automotive Design</span>
+        <h3>BMW M4 Pink Wrap</h3>
+        <p>Automotive design illustration.</p>
+        <span class="view-project">Artwork</span>
+    </div>
+</div>
+
+</div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        © <span id="year"></span> VENTURO DESIGN — A VISION OF WHAT IS YET TO COME
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>

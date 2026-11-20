@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marine | Venturo Design</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #111;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        header a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        header a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 110px 20px 90px;
+            background: linear-gradient(
+                to bottom,
+                #202020,
+                #111
+            );
+        }
+
+        .hero span {
+            color: #999;
+            font-size: 12px;
+            letter-spacing: 5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 70px);
+            font-weight: 400;
+            letter-spacing: 5px;
+            margin: 22px 0;
+        }
+
+        .hero p {
+            color: #aaa;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .projects-section {
+            width: 86%;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 65px 0;
+        }
+
+        .section-title {
+            margin-bottom: 35px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 18px;
+        }
+
+        .section-title h2 {
+            font-size: 21px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            background: #1b1b1b;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            display: block;
+            height: auto;
+            transition: opacity 0.3s;
+        }
+
+        .project-card:hover img {
+            opacity: 0.85;
+        }
+
+        .project-info {
+            padding: 22px;
+        }
+
+        .project-info h3 {
+            font-size: 17px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-bottom: 9px;
+        }
+
+        .project-info p {
+            color: #888;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .empty-message {
+            color: #777;
+            font-size: 13px;
+            letter-spacing: 1px;
+            padding: 10px 0;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 70px 20px 90px;
+        }
+
+        .back-link a {
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #555;
+            padding: 15px 30px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back-link a:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        footer {
+            border-top: 1px solid #333;
+            padding: 25px;
+            text-align: center;
+            color: #777;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px 5%;
+            }
+
+            .hero {
+                padding: 80px 15px 65px;
+            }
+
+            .projects-section {
+                width: 92%;
+                padding: 45px 0;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">VENTURO DESIGN</a>
+        <a href="index.html">← BACK TO HOME</a>
+    </header>
+
+    <section class="hero">
+        <span>VENTURO DESIGN — PORTFOLIO</span>
+
+        <h1>MARINE</h1>
+
+        <p>YACHT DESIGN & MARITIME CONCEPTS</p>
+    </section>
+
+    <section class="projects-section">
+
+        <div class="section-title">
+            <h2>IED Projects</h2>
+        </div>
+
+        <p class="empty-message">
+            Academic projects coming soon.
+        </p>
+
+    </section>
+
+    <section class="projects-section">
+
+        <div class="section-title">
+            <h2>Personal Projects</h2>
+        </div>
+
+        <div class="project-grid">
+
+            <a href="projects/sym-82-fd-2030.html" class="project-card">
+
+                <img
+                    src="assets/marine/personal/SYM-82'-FD-2030/cover.jpg"
+                    alt="SYM 82' FD 2030"
+                >
+
+                <div class="project-info">
+                    <h3>SYM 82' FD 2030</h3>
+                    <p>Personal Yacht Design Project</p>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+    <div class="back-link">
+        <a href="index.html">BACK TO HOME</a>
+    </div>
+
+    <footer>
+        © <span id="year"></span> VENTURO DESIGN
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
+
+</body>
+</html>
